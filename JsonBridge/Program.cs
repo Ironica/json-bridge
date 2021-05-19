@@ -10,7 +10,7 @@ namespace JsonBridge
         {
             var data = new RequestModel
             {
-                type = "colorful",
+                type = "colorfulmountainous",
                 code =
                     "cst a = Player()\n" +
                     "cst b = Player()\n" +
@@ -23,34 +23,49 @@ namespace JsonBridge
                     "    c.changeColor(\"GREEN\")\n" +
                     "    c.moveForward()\n" +
                     "}\n",
-                grid = new[]
+                grid = new[,]
                 {
-                    new[] {"OPEN", "OPEN", "OPEN"},
-                    new[] {"OPEN", "OPEN", "OPEN"},
-                    new[] {"OPEN", "OPEN", "OPEN"},
-                    new[] {"OPEN", "OPEN", "OPEN"},
+                    {"OPEN", "OPEN", "OPEN"},
+                    {"OPEN", "STAIR", "OPEN"},
+                    {"OPEN", "STAIR", "STAIR"},
+                    {"STAIR", "OPEN", "STAIR"},
                 },
-                layout = new[]
+                layout = new[,]
                 {
-                    new[] {"NONE", "NONE", "GEM"},
-                    new[] {"NONE", "NONE", "NONE"},
-                    new[] {"NONE", "NONE", "NONE"},
-                    new[] {"NONE", "NONE", "NONE"},
+                    {"NONE", "NONE", "GEM"},
+                    {"NONE", "NONE", "NONE"},
+                    {"NONE", "NONE", "NONE"},
+                    {"NONE", "NONE", "NONE"},
                 },
-                misc = new[]
+                colors = new[,]
                 {
-                    new[] {"WHITE", "WHITE", "WHITE",},
-                    new[] {"WHITE", "WHITE", "WHITE",},
-                    new[] {"WHITE", "WHITE", "WHITE",},
-                    new[] {"WHITE", "WHITE", "WHITE",},
+                    {"WHITE", "WHITE", "WHITE",},
+                    {"WHITE", "WHITE", "WHITE",},
+                    {"WHITE", "WHITE", "WHITE",},
+                    {"WHITE", "WHITE", "WHITE",},
+                },
+                levels = new[,]
+                {
+                    {1, 1, 1}, 
+                    {1, 2, 1},
+                    {1, 2, 2},
+                    {2, 1, 3}
                 },
                 portals = Array.Empty<Portal>(),
                 locks = Array.Empty<Lock>(),
+                stairs = new []
+                {
+                    new Stair(new Coordinate(0, 3), "UP"), 
+                    new Stair(new Coordinate(1, 1), "UP"), 
+                    new Stair(new Coordinate(1, 2), "DOWN"),
+                    new Stair(new Coordinate(2, 2), "UP"),
+                    new Stair(new Coordinate(2, 3), "UP")
+                },
                 players = new[]
                 {
-                    new Player() {id = 1, x = 0, y = 0, dir = "DOWN", role = "PLAYER", stamina = 90},
-                    new Player() {id = 2, x = 1, y = 0, dir = "DOWN", role = "SPECIALIST", stamina = 120},
-                    new Player() {id = 3, x = 2, y = 0, dir = "DOWN", role = "PLAYER", stamina = 100},
+                    new Player {id = 1, x = 0, y = 0, dir = "DOWN", role = "PLAYER", stamina = 90},
+                    new Player {id = 2, x = 1, y = 0, dir = "DOWN", role = "SPECIALIST", stamina = 120},
+                    new Player {id = 3, x = 2, y = 0, dir = "DOWN", role = "PLAYER", stamina = 100},
                 }
             };
 
